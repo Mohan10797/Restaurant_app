@@ -1,21 +1,6 @@
 import streamlit as st
 import pandas as pd
 df_order=pd.read_csv("orders_cleaned.csv")
-
-def get_connecion():
-    conn=pymysql.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="my_pro"
-    )
-    return conn
-
-def get_data(query):
-    conn=get_connecion()
-    df=pd.read_sql(query,conn)
-    conn.close()
-    return df
 st.title(":hamburger: Restaurant Orders")
 queries = {"1 .Total Revenue in Orders":"SELECT SUM(order_value)AS total_revenue FROM orders_cleaned;",
            "2 .High Orders":"SELECT restaurant_name,COUNT(*) AS total_orders FROM orders_cleaned GROUP BY restaurant_name ORDER BY total_orders DESC LIMIT 5;",

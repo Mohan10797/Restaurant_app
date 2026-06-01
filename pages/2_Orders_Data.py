@@ -11,6 +11,7 @@ queries = {"1 .Total Revenue in Orders":"SELECT SUM(order_value)AS total_revenue
 selected_query=st.selectbox("select a query:",list(queries.keys()))
 if st.button("Run Query"):
     with st.spinner("fetching data..."):
-        df=get_data(queries[selected_query])
+        conn=st.connection("pandas_sql",type="sql")
+        df=conn.query(queries[selected_query])
         st.success("Query executed successfully!")
         st.markdown(df.to_html(index=False),unsafe_allow_html=True)

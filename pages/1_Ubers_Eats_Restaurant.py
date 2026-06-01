@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-df.pd.read_csv("new_cleaned_data.csv")
+df=pd.read_csv("new_cleaned_data.csv")
 
 def get_connecion():
     conn=pymysql.connect(

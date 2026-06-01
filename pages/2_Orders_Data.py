@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pymysql
+df_order=pd.read_csv("orders_cleaned.csv")
 
 def get_connecion():
     conn=pymysql.connect(

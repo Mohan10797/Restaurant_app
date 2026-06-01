@@ -1,21 +1,6 @@
 import streamlit as st
 import pandas as pd
 df=pd.read_csv("new_cleaned_data.csv")
-
-def get_connecion():
-    conn=pymysql.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="my_pro"
-    )
-    return conn
-
-def get_data(query):
-    conn=get_connecion()
-    df=pd.read_sql(query,conn)
-    conn.close()
-    return df
 st.title(":hamburger: Uber Eats Restaurant")
 queries = {
     "1 .Which Bangalore locations have the highest average restaurant ratings": "SELECT location,AVG(CAST(rate AS DECIMAL(10,2)))as avg_rating FROM MY_PRO GROUP BY location ORDER BY avg_rating DESC LIMIT 10;",

@@ -1,15 +1,9 @@
 import streamlit as st
 import pandas as pd
-import pymysql
+import sqlite3
 
-def get_connecion():
-    conn=pymysql.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="my_pro"
-    )
-    return conn
+def get_connection():
+    return=sqlite3.connect("restaurant.db")
 
 def get_data(query):
     conn=get_connecion()

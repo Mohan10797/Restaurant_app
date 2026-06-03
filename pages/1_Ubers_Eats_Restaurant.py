@@ -4,10 +4,11 @@ import pymysql
 
 def get_connecion():
     conn=pymysql.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="my_pro"
+    host=st.secrets["mysql]"["host"],
+    user=st.secrets["mysql"]["user"],
+    password=st.secrets["mysql"]["password"],
+    port=st.secrets["mysql"]["port"],
+    database=st.secrets["mysql"]["database"]
     )
     return conn
 
